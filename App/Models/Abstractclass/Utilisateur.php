@@ -1,5 +1,5 @@
 <?php 
-
+namespace App\Models\Abstractclass;
 abstract class Utilisateur 
 {
     protected string $nom;
@@ -15,7 +15,22 @@ abstract class Utilisateur
         $this->password = $password;
         $this->role = $role;
     }
-    
+    public function getNom(): string{
+        return $this->nom;
+    }
+    public function getPrenom(): string{
+        return $this->prenom;
+    }
+    public function getEmail(): string{
+        return $this->email;
+    }
+    public function getPassword(): string{
+        return $this->password;
+    }
+    public function getRole(): string{
+        return $this->role;
+    }
+
 }
 
 ?>
