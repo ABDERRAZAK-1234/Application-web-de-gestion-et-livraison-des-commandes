@@ -1,4 +1,7 @@
 <?php
+namespace App\Database;
+use PDO;
+use PDOException;
 
 class DatabaseConnection
 {
@@ -26,4 +29,4 @@ class DatabaseConnection
         return self::$conn;
     }
 }
-DatabaseConnection::connexion();
+// DatabaseConnection::connexion();
