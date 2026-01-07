@@ -20,7 +20,7 @@ class DatabaseConnection
                     ""
                 );
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo "success";
+                // echo "success";
             } catch (PDOException $e) {
                 die("Erreur de connexion : " . $e->getMessage());
             }
