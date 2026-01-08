@@ -33,4 +33,14 @@ abstract class Utilisateur extends BaseModel
     {
         return $this->role;
     }
+
+     public function getNom(): string
+    {
+        return $this->nom;
+    }
+
+    public function getPrenom(): string
+    {
+        return $this->prenom;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Database\DatabaseConnection;
+use App\Models\Abstractclass\Utilisateur;
 use PDO;
 use Exception;
 
@@ -18,6 +19,8 @@ abstract class BaseModel
 {
     $this->attributes[$key] = $value;
 }
+    // getter
+
 
 
 
@@ -28,22 +31,23 @@ abstract class BaseModel
             "SELECT * FROM {$instance->table} WHERE id = :id"
         );
         $stmt->execute(['id' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_CLASS,Utilisateur::class);
+        return $stmt->fetch();
     }
     // save
     public function save()
 {
-    // Check if email exists (for unique constraint)
+    // Check if email exists
     if (!empty($this->attributes['email'])) {
         $stmt = $this->db->prepare("SELECT id FROM {$this->table} WHERE email = :email");
         $stmt->execute(['email' => $this->attributes['email']]);
         $existing = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($existing && !isset($this->attributes['id'])) {
-            // Email already exists & we are not updating
+            // Email already exists 
             throw new Exception("Email déjà utilisé !");
         } elseif ($existing && isset($this->attributes['id'])) {
-            // Email exists but we are updating the same user, allow it
+            // Email exists but we are updating the same user
             if ($existing['id'] != $this->attributes['id']) {
                 throw new Exception("Email déjà utilisé par un autre utilisateur !");
             }
