@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes offres - Livraison Express</title>
+    <title>Commandes disponibles - Livraison Express</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-livreur.html">
+            <a class="navbar-brand" href="dashboard-livreur.php">
                 <i class="bi bi-bicycle me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,22 +35,22 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Livreur</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-livreur.html">
+                            <a class="nav-link" href="dashboard-livreur.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="available-commands.html">
+                            <a class="nav-link active" href="available-commands.php">
                                 <i class="bi bi-list-check"></i>Commandes disponibles
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="my-offers.html">
+                            <a class="nav-link" href="my-offers.php">
                                 <i class="bi bi-envelope-paper"></i>Mes offres
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="accepted-commands.html">
+                            <a class="nav-link" href="accepted-commands.php">
                                 <i class="bi bi-check-circle"></i>Commandes acceptées
                             </a>
                         </li>
@@ -67,11 +67,11 @@
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="h3">Mes offres</h1>
+                    <h1 class="h3">Commandes disponibles</h1>
                 </div>
 
-                <!-- Liste des offres -->
-                <div id="offersList">
+                <!-- Liste des commandes -->
+                <div id="commandsList">
                     <div class="text-center py-5">
                         <div class="spinner-border text-success" role="status">
                             <span class="visually-hidden">Chargement...</span>
@@ -102,98 +102,77 @@
     <script src="assets/js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            loadMyOffers();
+            loadAvailableCommands();
             updateNotificationCount();
         });
 
-        function loadMyOffers() {
-            const user = authManager.getCurrentUser();
-            const offers = getOffers();
-            const myOffers = offers.filter(o => o.delivererId === user.id);
+        function loadAvailableCommands() {
             const commands = getCommands();
-
-            displayOffers(myOffers, commands);
+            const available = commands.filter(c => c.status === 'pending');
+            displayCommands(available);
         }
 
-        function displayOffers(offers, commands) {
-            const container = document.getElementById('offersList');
+        function displayCommands(commands) {
+            const container = document.getElementById('commandsList');
             
-            if (offers.length === 0) {
+            if (commands.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
                         <i class="bi bi-inbox"></i>
-                        <h5>Aucune offre envoyée</h5>
-                        <p class="text-muted">Vous n'avez pas encore envoyé d'offres.</p>
-                        <a href="available-commands.html" class="btn btn-success mt-3">
-                            <i class="bi bi-search me-2"></i>Voir les commandes disponibles
-                        </a>
+                        <h5>Aucune commande disponible</h5>
+                        <p class="text-muted">Il n'y a actuellement aucune commande ouverte à la livraison.</p>
                     </div>
                 `;
                 return;
             }
 
-            // Trier par date (plus récentes en premier)
-            offers.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-            container.innerHTML = offers.map(offer => {
-                const command = commands.find(c => c.id === offer.commandId);
-                const isAccepted = command && command.acceptedOffer && command.acceptedOffer.id === offer.id;
-                
+            container.innerHTML = commands.map(cmd => {
+                const offersCount = cmd.offers ? cmd.offers.length : 0;
                 return `
-                    <div class="command-card ${isAccepted ? 'border-success' : ''}">
+                    <div class="command-card">
                         <div class="command-header">
                             <div class="command-info">
-                                <h6 class="mb-1">Commande #${offer.commandId}</h6>
+                                <h6 class="mb-1">Commande #${cmd.id}</h6>
                                 <small class="text-muted">
-                                    <i class="bi bi-calendar me-1"></i>Offre envoyée le ${formatDate(offer.createdAt)}
+                                    <i class="bi bi-calendar me-1"></i>${formatDate(cmd.createdAt)}
                                 </small>
-                                <div class="mt-2">
-                                    ${isAccepted ? 
-                                        '<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Acceptée</span>' : 
-                                        '<span class="badge bg-warning"><i class="bi bi-clock me-1"></i>En attente</span>'
-                                    }
-                                </div>
+                                <div class="mt-2">${getStatusBadge(cmd.status)}</div>
                             </div>
                             <div class="command-actions">
-                                <a href="deliverer-command-detail.html?id=${offer.commandId}" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-eye me-1"></i>Voir
+                                <a href="deliverer-command-detail.html?id=${cmd.id}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-eye me-1"></i>Voir détails
                                 </a>
                             </div>
                         </div>
-                        ${command ? `
-                            <div class="row mt-3">
-                                <div class="col-md-6 mb-2">
-                                    <small class="text-muted d-block mb-1">
-                                        <i class="bi bi-geo-alt-fill text-primary"></i> De :
-                                    </small>
-                                    <p class="mb-0">${command.pickupAddress}</p>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <small class="text-muted d-block mb-1">
-                                        <i class="bi bi-geo-alt text-success"></i> Vers :
-                                    </small>
-                                    <p class="mb-0">${command.deliveryAddress}</p>
-                                </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 mb-2">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="bi bi-geo-alt-fill text-primary"></i> De :
+                                </small>
+                                <p class="mb-0">${cmd.pickupAddress}</p>
                             </div>
-                        ` : ''}
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <small class="text-muted">Prix proposé</small>
-                                <p class="mb-0 fw-bold text-primary">${offer.price} €</p>
-                            </div>
-                            <div class="col-md-4">
-                                <small class="text-muted">Durée estimée</small>
-                                <p class="mb-0">${offer.estimatedTime}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <small class="text-muted">Véhicule</small>
-                                <p class="mb-0">${offer.vehicleType}</p>
+                            <div class="col-md-6 mb-2">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="bi bi-geo-alt text-success"></i> Vers :
+                                </small>
+                                <p class="mb-0">${cmd.deliveryAddress}</p>
                             </div>
                         </div>
-                        ${offer.message ? `
+                        <div class="mt-2">
+                            <small class="text-muted">Description :</small>
+                            <p class="mb-0 text-truncate-2">${cmd.description}</p>
+                        </div>
+                        <div class="mt-2">
+                            <small class="text-muted">Poids :</small>
+                            <span class="badge bg-secondary">${cmd.weight || 'N/A'} kg</span>
+                            ${cmd.options && cmd.options.fragile ? '<span class="badge bg-warning ms-2"><i class="bi bi-exclamation-triangle me-1"></i>Fragile</span>' : ''}
+                            ${cmd.options && cmd.options.express ? '<span class="badge bg-danger ms-2"><i class="bi bi-lightning-charge me-1"></i>Express</span>' : ''}
+                        </div>
+                        ${offersCount > 0 ? `
                             <div class="mt-2">
-                                <small class="text-muted">Message :</small>
-                                <p class="mb-0 small">${offer.message}</p>
+                                <small class="text-muted">
+                                    <i class="bi bi-envelope me-1"></i>${offersCount} offre(s) déjà envoyée(s)
+                                </small>
                             </div>
                         ` : ''}
                     </div>

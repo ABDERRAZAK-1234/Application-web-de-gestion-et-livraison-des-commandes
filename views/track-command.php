@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-client.html">
+            <a class="navbar-brand" href="dashboard-client.php">
                 <i class="bi bi-truck me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,17 +35,17 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Client</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-client.html">
+                            <a class="nav-link" href="dashboard-client.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="create-command.html">
+                            <a class="nav-link" href="create-command.php">
                                 <i class="bi bi-plus-circle"></i>Créer une commande
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="commands-list.html">
+                            <a class="nav-link" href="commands-list.php">
                                 <i class="bi bi-list-ul"></i>Mes commandes
                             </a>
                         </li>
@@ -168,11 +168,11 @@
             const urlParams = new URLSearchParams(window.location.search);
             const commandId = parseInt(urlParams.get('id'));
             if (commandId) {
-                document.getElementById('backLink').href = `command-detail.html?id=${commandId}`;
+                document.getElementById('backLink').href = `command-detail.php?id=${commandId}`;
                 loadCommandTracking(commandId);
             } else {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'commands-list.html', 1000);
+                setTimeout(() => window.location.href = 'commands-list.php', 1000);
             }
             updateNotificationCount();
         });
@@ -183,7 +183,7 @@
             
             if (!command) {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'commands-list.html', 1000);
+                setTimeout(() => window.location.href = 'commands-list.php', 1000);
                 return;
             }
 

@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-client.html">
+            <a class="navbar-brand" href="dashboard-client.php">
                 <i class="bi bi-truck me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,17 +35,17 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Client</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-client.html">
+                            <a class="nav-link" href="dashboard-client.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="create-command.html">
+                            <a class="nav-link" href="create-command.php">
                                 <i class="bi bi-plus-circle"></i>Créer une commande
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="commands-list.html">
+                            <a class="nav-link active" href="commands-list.php">
                                 <i class="bi bi-list-ul"></i>Mes commandes
                             </a>
                         </li>
@@ -64,7 +64,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h1 class="h3">Mes commandes</h1>
                     <div>
-                        <a href="create-command.html" class="btn btn-primary">
+                        <a href="create-command.php" class="btn btn-primary">
                             <i class="bi bi-plus-circle me-2"></i>Nouvelle commande
                         </a>
                     </div>

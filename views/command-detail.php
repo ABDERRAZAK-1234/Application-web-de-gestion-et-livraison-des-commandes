@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-client.html">
+            <a class="navbar-brand" href="dashboard-client.php">
                 <i class="bi bi-truck me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,17 +35,17 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Client</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-client.html">
+                            <a class="nav-link" href="dashboard-client.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="create-command.html">
+                            <a class="nav-link" href="create-command.php">
                                 <i class="bi bi-plus-circle"></i>Créer une commande
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="commands-list.html">
+                            <a class="nav-link" href="commands-list.php">
                                 <i class="bi bi-list-ul"></i>Mes commandes
                             </a>
                         </li>
@@ -63,7 +63,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <a href="commands-list.html" class="btn btn-outline-secondary btn-sm mb-2">
+                        <a href="commands-list.php" class="btn btn-outline-secondary btn-sm mb-2">
                             <i class="bi bi-arrow-left me-2"></i>Retour
                         </a>
                         <h1 class="h3 mb-0">Commande #<span id="commandId"></span></h1>
@@ -224,7 +224,7 @@
                 loadCommandDetail(commandId);
             } else {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'commands-list.html', 1000);
+                setTimeout(() => window.location.href = 'commands-list.php', 1000);
             }
             updateNotificationCount();
         });
@@ -235,7 +235,7 @@
             
             if (!command) {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'commands-list.html', 1000);
+                setTimeout(() => window.location.href = 'commands-list.php', 1000);
                 return;
             }
 

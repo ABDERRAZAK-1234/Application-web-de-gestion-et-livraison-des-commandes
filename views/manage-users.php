@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-admin.html">
+            <a class="navbar-brand" href="dashboard-admin.php">
                 <i class="bi bi-shield-check me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,17 +35,17 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Admin</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-admin.html">
+                            <a class="nav-link" href="dashboard-admin.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="manage-users.html">
+                            <a class="nav-link active" href="manage-users.php">
                                 <i class="bi bi-people"></i>Gestion utilisateurs
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="statistics.html">
+                            <a class="nav-link" href="statistics.php">
                                 <i class="bi bi-graph-up"></i>Statistiques
                             </a>
                         </li>

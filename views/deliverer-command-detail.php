@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-livreur.html">
+            <a class="navbar-brand" href="dashboard-livreur.php">
                 <i class="bi bi-bicycle me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,22 +35,22 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Livreur</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-livreur.html">
+                            <a class="nav-link" href="dashboard-livreur.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="available-commands.html">
+                            <a class="nav-link" href="available-commands.php">
                                 <i class="bi bi-list-check"></i>Commandes disponibles
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="my-offers.html">
+                            <a class="nav-link" href="my-offers.php">
                                 <i class="bi bi-envelope-paper"></i>Mes offres
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="accepted-commands.html">
+                            <a class="nav-link" href="accepted-commands.php">
                                 <i class="bi bi-check-circle"></i>Commandes acceptées
                             </a>
                         </li>
@@ -68,7 +68,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <a href="available-commands.html" class="btn btn-outline-secondary btn-sm mb-2">
+                        <a href="available-commands.php" class="btn btn-outline-secondary btn-sm mb-2">
                             <i class="bi bi-arrow-left me-2"></i>Retour
                         </a>
                         <h1 class="h3 mb-0">Commande #<span id="commandId"></span></h1>
@@ -232,7 +232,7 @@
                 loadCommandDetail(commandId);
             } else {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'available-commands.html', 1000);
+                setTimeout(() => window.location.href = 'available-commands.php', 1000);
             }
             updateNotificationCount();
         });
@@ -243,7 +243,7 @@
             
             if (!command) {
                 showAlert('Commande introuvable', 'danger');
-                setTimeout(() => window.location.href = 'available-commands.html', 1000);
+                setTimeout(() => window.location.href = 'available-commands.php', 1000);
                 return;
             }
 

@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-admin.html">
+            <a class="navbar-brand" href="dashboard-admin.php">
                 <i class="bi bi-shield-check me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
@@ -35,17 +35,17 @@
                     <h6 class="text-muted text-uppercase small mb-3">Menu Admin</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard-admin.html">
+                            <a class="nav-link active" href="dashboard-admin.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-users.html">
+                            <a class="nav-link" href="manage-users.php">
                                 <i class="bi bi-people"></i>Gestion utilisateurs
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="statistics.html">
+                            <a class="nav-link" href="statistics.php">
                                 <i class="bi bi-graph-up"></i>Statistiques
                             </a>
                         </li>
@@ -114,7 +114,7 @@
                                 <i class="bi bi-people fs-1 text-primary mb-3"></i>
                                 <h5 class="card-title">Gestion utilisateurs</h5>
                                 <p class="card-text text-muted">Gérer les utilisateurs et leurs rôles</p>
-                                <a href="manage-users.html" class="btn btn-primary">
+                                <a href="manage-users.php" class="btn btn-primary">
                                     <i class="bi bi-arrow-right me-2"></i>Gérer
                                 </a>
                             </div>
@@ -126,7 +126,7 @@
                                 <i class="bi bi-graph-up fs-1 text-success mb-3"></i>
                                 <h5 class="card-title">Statistiques</h5>
                                 <p class="card-text text-muted">Voir les statistiques détaillées</p>
-                                <a href="statistics.html" class="btn btn-success">
+                                <a href="statistics.php" class="btn btn-success">
                                     <i class="bi bi-arrow-right me-2"></i>Voir
                                 </a>
                             </div>

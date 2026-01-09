@@ -32,16 +32,16 @@ class AuthManager {
     // Vérifier si la page est protégée
     isProtectedPage() {
         const protectedPages = [
-            'dashboard-client.html',
-            'dashboard-livreur.html',
-            'dashboard-admin.html',
-            'create-command.html',
-            'commands-list.html',
-            'command-detail.html',
-            'send-offer.html',
-            'track-command.html',
-            'manage-users.html',
-            'statistics.html'
+            'dashboard-client.php',
+            'dashboard-livreur.php',
+            'dashboard-admin.php',
+            'create-command.php',
+            'commands-list.php',
+            'command-detail.php',
+            'send-offer.php',
+            'track-command.php',
+            'manage-users.php',
+            'statistics.php'
         ];
         const currentPage = window.location.pathname.split('/').pop();
         return protectedPages.includes(currentPage);
@@ -49,23 +49,23 @@ class AuthManager {
 
     // Rediriger vers la page de connexion
     redirectToLogin() {
-        window.location.href = 'login.html';
+        window.location.href = 'login.php';
     }
 
     // Rediriger selon le rôle
     redirectByRole(role) {
         switch(role) {
             case 'client':
-                window.location.href = 'dashboard-client.html';
+                window.location.href = 'dashboard-client.php';
                 break;
             case 'livreur':
-                window.location.href = 'dashboard-livreur.html';
+                window.location.href = 'dashboard-livreur.php';
                 break;
             case 'admin':
-                window.location.href = 'dashboard-admin.html';
+                window.location.href = 'dashboard-admin.php';
                 break;
             default:
-                window.location.href = 'login.html';
+                window.location.href = 'login.php';
         }
     }
 
@@ -75,7 +75,7 @@ class AuthManager {
         localStorage.removeItem('commands');
         localStorage.removeItem('offers');
         localStorage.removeItem('notifications');
-        window.location.href = 'index.html';
+        window.location.href = 'index.php';
     }
 
     // Vérifier si l'utilisateur a le bon rôle

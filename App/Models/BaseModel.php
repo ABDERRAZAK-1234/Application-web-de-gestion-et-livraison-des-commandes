@@ -31,7 +31,7 @@ abstract class BaseModel
             "SELECT * FROM {$instance->table} WHERE id = :id"
         );
         $stmt->execute(['id' => $id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS,Utilisateur::class);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         return $stmt->fetch();
     }
     // save

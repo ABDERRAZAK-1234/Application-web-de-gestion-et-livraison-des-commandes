@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Livreur - Livraison Express</title>
+    <title>Dashboard Client - Livraison Express</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard-livreur.html">
-                <i class="bi bi-bicycle me-2"></i>Livraison Express
+            <a class="navbar-brand" href="dashboard-client.php">
+                <i class="bi bi-truck me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
                 <span class="navbar-toggler-icon"></span>
@@ -30,28 +30,23 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-            <nav class="col-md-3 col-lg-2 sidebar p-0" data-role="livreur">
+            <nav class="col-md-3 col-lg-2 sidebar p-0" data-role="client">
                 <div class="p-3">
-                    <h6 class="text-muted text-uppercase small mb-3">Menu Livreur</h6>
+                    <h6 class="text-muted text-uppercase small mb-3">Menu Client</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard-livreur.html">
+                            <a class="nav-link active" href="dashboard-client.php">
                                 <i class="bi bi-speedometer2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="available-commands.html">
-                                <i class="bi bi-list-check"></i>Commandes disponibles
+                            <a class="nav-link" href="create-command.php">
+                                <i class="bi bi-plus-circle"></i>Créer une commande
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="my-offers.html">
-                                <i class="bi bi-envelope-paper"></i>Mes offres
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="accepted-commands.html">
-                                <i class="bi bi-check-circle"></i>Commandes acceptées
+                            <a class="nav-link" href="commands-list.php">
+                                <i class="bi bi-list-ul"></i>Mes commandes
                             </a>
                         </li>
                         <li class="nav-item">
@@ -67,7 +62,7 @@
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="h3">Dashboard Livreur</h1>
+                    <h1 class="h3">Dashboard Client</h1>
                     <span class="text-muted">Bonjour, <strong class="user-name"></strong></span>
                 </div>
 
@@ -75,10 +70,10 @@
                 <div class="dashboard-stats">
                     <div class="stat-item">
                         <div class="stat-icon bg-primary bg-opacity-10 text-primary">
-                            <i class="bi bi-list-check"></i>
+                            <i class="bi bi-clock-history"></i>
                         </div>
-                        <div class="stat-value text-primary" id="availableCount">0</div>
-                        <div class="stat-label">Disponibles</div>
+                        <div class="stat-value text-primary" id="pendingCount">0</div>
+                        <div class="stat-label">En attente</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon bg-info bg-opacity-10 text-info">
@@ -91,15 +86,15 @@
                         <div class="stat-icon bg-success bg-opacity-10 text-success">
                             <i class="bi bi-check-circle"></i>
                         </div>
-                        <div class="stat-value text-success" id="deliveredCount">0</div>
-                        <div class="stat-label">Livrées</div>
+                        <div class="stat-value text-success" id="completedCount">0</div>
+                        <div class="stat-label">Terminées</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon bg-warning bg-opacity-10 text-warning">
-                            <i class="bi bi-envelope-paper"></i>
+                        <div class="stat-icon bg-danger bg-opacity-10 text-danger">
+                            <i class="bi bi-x-circle"></i>
                         </div>
-                        <div class="stat-value text-warning" id="offersCount">0</div>
-                        <div class="stat-label">Mes offres</div>
+                        <div class="stat-value text-danger" id="cancelledCount">0</div>
+                        <div class="stat-label">Annulées</div>
                     </div>
                 </div>
 
@@ -108,11 +103,11 @@
                     <div class="col-md-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="bi bi-list-check fs-1 text-primary mb-3"></i>
-                                <h5 class="card-title">Commandes disponibles</h5>
-                                <p class="card-text text-muted">Consultez les commandes ouvertes à la livraison</p>
-                                <a href="available-commands.html" class="btn btn-primary">
-                                    <i class="bi bi-search me-2"></i>Voir les commandes
+                                <i class="bi bi-plus-circle fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title">Créer une commande</h5>
+                                <p class="card-text text-muted">Passez une nouvelle commande de livraison</p>
+                                <a href="create-command.php" class="btn btn-primary">
+                                    <i class="bi bi-plus me-2"></i>Nouvelle commande
                                 </a>
                             </div>
                         </div>
@@ -120,10 +115,10 @@
                     <div class="col-md-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="bi bi-check-circle fs-1 text-success mb-3"></i>
-                                <h5 class="card-title">Commandes acceptées</h5>
-                                <p class="card-text text-muted">Gérez vos commandes en cours de livraison</p>
-                                <a href="accepted-commands.html" class="btn btn-success">
+                                <i class="bi bi-list-ul fs-1 text-info mb-3"></i>
+                                <h5 class="card-title">Mes commandes</h5>
+                                <p class="card-text text-muted">Consultez toutes vos commandes</p>
+                                <a href="commands-list.php" class="btn btn-info text-white">
                                     <i class="bi bi-list me-2"></i>Voir mes commandes
                                 </a>
                             </div>
@@ -131,17 +126,17 @@
                     </div>
                 </div>
 
-                <!-- Commandes en cours -->
+                <!-- Commandes récentes -->
                 <div class="card">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Commandes en cours</h5>
-                        <a href="accepted-commands.html" class="btn btn-sm btn-outline-success">Voir tout</a>
+                        <h5 class="mb-0">Commandes récentes</h5>
+                        <a href="commands-list.php" class="btn btn-sm btn-outline-primary">Voir tout</a>
                     </div>
                     <div class="card-body">
-                        <div id="currentCommands">
+                        <div id="recentCommands">
                             <div class="empty-state">
                                 <i class="bi bi-inbox"></i>
-                                <p>Aucune commande en cours</p>
+                                <p>Aucune commande récente</p>
                             </div>
                         </div>
                     </div>
@@ -169,53 +164,49 @@
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
+        // Charger les statistiques et commandes récentes
         document.addEventListener('DOMContentLoaded', () => {
-            loadLivreurDashboard();
+            loadClientDashboard();
         });
 
-        function loadLivreurDashboard() {
-            const user = authManager.getCurrentUser();
+        function loadClientDashboard() {
             const commands = getCommands();
-            const offers = getOffers();
+            const user = authManager.getCurrentUser();
             
-            // Commandes disponibles (en attente)
-            const available = commands.filter(c => c.status === 'pending');
+            // Filtrer les commandes de l'utilisateur
+            const userCommands = commands.filter(c => c.clientId === user.id);
             
-            // Commandes acceptées par ce livreur
-            const acceptedCommands = commands.filter(c => 
-                c.acceptedOffer && c.acceptedOffer.delivererId === user.id
-            );
-            
-            // Commandes en cours
-            const processing = acceptedCommands.filter(c => 
-                c.status === 'processing' || c.status === 'shipped'
-            );
-            
-            // Commandes livrées
-            const delivered = acceptedCommands.filter(c => c.status === 'completed');
-            
-            // Mes offres
-            const myOffers = offers.filter(o => o.delivererId === user.id);
+            // Calculer les statistiques
+            const stats = {
+                pending: userCommands.filter(c => c.status === 'pending').length,
+                processing: userCommands.filter(c => c.status === 'processing').length,
+                completed: userCommands.filter(c => c.status === 'completed').length,
+                cancelled: userCommands.filter(c => c.status === 'cancelled').length
+            };
             
             // Afficher les statistiques
-            document.getElementById('availableCount').textContent = available.length;
-            document.getElementById('processingCount').textContent = processing.length;
-            document.getElementById('deliveredCount').textContent = delivered.length;
-            document.getElementById('offersCount').textContent = myOffers.length;
+            document.getElementById('pendingCount').textContent = stats.pending;
+            document.getElementById('processingCount').textContent = stats.processing;
+            document.getElementById('completedCount').textContent = stats.completed;
+            document.getElementById('cancelledCount').textContent = stats.cancelled;
             
-            // Afficher les commandes en cours
-            displayCurrentCommands(processing);
+            // Afficher les commandes récentes (5 dernières)
+            const recentCommands = userCommands
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .slice(0, 5);
+            
+            displayRecentCommands(recentCommands);
             updateNotificationCount();
         }
 
-        function displayCurrentCommands(commands) {
-            const container = document.getElementById('currentCommands');
+        function displayRecentCommands(commands) {
+            const container = document.getElementById('recentCommands');
             
             if (commands.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
                         <i class="bi bi-inbox"></i>
-                        <p>Aucune commande en cours</p>
+                        <p>Aucune commande récente</p>
                     </div>
                 `;
                 return;
@@ -230,14 +221,9 @@
                             <div class="mt-2">${getStatusBadge(cmd.status)}</div>
                         </div>
                         <div class="command-actions">
-                            <a href="deliverer-command-detail.html?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
+                            <a href="command-detail.html?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-eye me-1"></i>Voir
                             </a>
-                            ${cmd.status === 'processing' ? `
-                                <button onclick="markAsShipped(${cmd.id})" class="btn btn-sm btn-success">
-                                    <i class="bi bi-truck me-1"></i>Marquer comme expédiée
-                                </button>
-                            ` : ''}
                         </div>
                     </div>
                     <div class="row">
@@ -254,18 +240,10 @@
             `).join('');
         }
 
-        function markAsShipped(id) {
-            if (confirm('Marquer cette commande comme expédiée ?')) {
-                const commands = getCommands();
-                const index = commands.findIndex(c => c.id === id);
-                if (index !== -1) {
-                    commands[index].status = 'shipped';
-                    commands[index].shippedAt = new Date().toISOString();
-                    saveCommands(commands);
-                    showAlert('Commande marquée comme expédiée', 'success');
-                    loadLivreurDashboard();
-                }
-            }
+        function showNotifications() {
+            const modal = new bootstrap.Modal(document.getElementById('notificationsModal'));
+            loadNotifications();
+            modal.show();
         }
     </script>
 </body>

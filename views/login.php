@@ -47,7 +47,7 @@
                             </button>
                             
                             <div class="text-center">
-                                <p class="mb-0">Pas encore de compte ? <a href="register.html" class="text-primary">S'inscrire</a></p>
+                                <p class="mb-0">Pas encore de compte ? <a href="register.php" class="text-primary">S'inscrire</a></p>
                             </div>
                         </form>
                         

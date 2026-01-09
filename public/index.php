@@ -56,8 +56,8 @@ use App\Enum\Vhecule;
 // echo $offre->getLivreur()->getPrenom();
 
 $adminData = Admin::find(2);
-// echo $adminData->getNom();
-var_dump($adminData);
+// echo $adminData;
+print_r($adminData);
 // fetch again to confirm update
 // $updated = Admin::find(1);
 // var_dump($updated);

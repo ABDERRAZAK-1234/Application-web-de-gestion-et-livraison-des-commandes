@@ -34,7 +34,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-home fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="indexV.php">
                 <i class="bi bi-truck text-primary me-2"></i>Livraison Express
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -52,12 +52,12 @@
                         <a class="nav-link" href="#about">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary ms-2" href="login.html">
+                        <a class="nav-link btn btn-outline-primary ms-2" href="login.php">
                             <i class="bi bi-box-arrow-in-right me-1"></i>Connexion
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success ms-2 text-gray" href="register.html">
+                        <a class="nav-link btn btn-success ms-2 text-gray" href="register.php">
                             <i class="bi bi-person-plus me-1"></i>S'inscrire
                         </a>
                     </li>
@@ -77,10 +77,10 @@
                         Gérez vos commandes en temps réel avec notre plateforme intuitive.
                     </p>
                     <div class="d-flex gap-3 flex-wrap">
-                        <a href="register.html" class="btn btn-light btn-lg">
+                        <a href="register.php" class="btn btn-light btn-lg">
                             <i class="bi bi-rocket-takeoff me-2"></i>Commencer maintenant
                         </a>
-                        <a href="login.html" class="btn btn-outline-light btn-lg">
+                        <a href="login.php" class="btn btn-outline-light btn-lg">
                             <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
                         </a>
                     </div>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="register.html" class="btn btn-primary btn-lg">
+                    <a href="register.php" class="btn btn-primary btn-lg">
                         <i class="bi bi-rocket-takeoff me-2"></i>Rejoindre maintenant
                     </a>
                 </div>
@@ -264,10 +264,10 @@
             <h2 class="display-5 fw-bold mb-4">Prêt à commencer ?</h2>
             <p class="lead mb-4">Rejoignez Livraison Express dès aujourd'hui</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="register.html" class="btn btn-light btn-lg">
+                <a href="register.php" class="btn btn-light btn-lg">
                     <i class="bi bi-person-plus me-2"></i>Créer un compte
                 </a>
-                <a href="login.html" class="btn btn-outline-light btn-lg">
+                <a href="login.php" class="btn btn-outline-light btn-lg">
                     <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
                 </a>
             </div>
@@ -289,9 +289,9 @@
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold mb-3">Liens rapides</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Accueil</a></li>
-                        <li class="mb-2"><a href="login.html" class="text-white-50 text-decoration-none">Connexion</a></li>
-                        <li class="mb-2"><a href="register.html" class="text-white-50 text-decoration-none">Inscription</a></li>
+                        <li class="mb-2"><a href="index.php" class="text-white-50 text-decoration-none">Accueil</a></li>
+                        <li class="mb-2"><a href="login.php" class="text-white-50 text-decoration-none">Connexion</a></li>
+                        <li class="mb-2"><a href="register.php" class="text-white-50 text-decoration-none">Inscription</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -338,4 +338,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
