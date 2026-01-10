@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                             <div class="command-actions">
-                                <a href="deliverer-command-detail.html?id=${offer.commandId}" class="btn btn-sm btn-outline-primary">
+                                <a href="deliverer-command-detail.php?id=${offer.commandId}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-eye me-1"></i>Voir
                                 </a>
                             </div>

@@ -139,7 +139,7 @@
                                 <div class="mt-2">${getStatusBadge(cmd.status)}</div>
                             </div>
                             <div class="command-actions">
-                                <a href="deliverer-command-detail.html?id=${cmd.id}" class="btn btn-sm btn-primary">
+                                <a href="deliverer-command-detail.php?id=${cmd.id}" class="btn btn-sm btn-primary">
                                     <i class="bi bi-eye me-1"></i>Voir détails
                                 </a>
                             </div>

@@ -348,7 +348,7 @@
             if (cmd.status === 'pending') {
                 actions = `
                     <p class="text-muted small mb-3">En attente d'offres de livreurs</p>
-                    <a href="create-command.html?edit=${cmd.id}" class="btn btn-outline-warning w-100 mb-2">
+                    <a href="create-command.php?edit=${cmd.id}" class="btn btn-outline-warning w-100 mb-2">
                         <i class="bi bi-pencil me-1"></i>Modifier
                     </a>
                     <button onclick="cancelCommand(${cmd.id})" class="btn btn-outline-danger w-100">
@@ -357,7 +357,7 @@
                 `;
             } else if (cmd.status === 'processing' || cmd.status === 'shipped') {
                 actions = `
-                    <a href="track-command.html?id=${cmd.id}" class="btn btn-primary w-100 mb-2">
+                    <a href="track-command.php?id=${cmd.id}" class="btn btn-primary w-100 mb-2">
                         <i class="bi bi-geo-alt me-1"></i>Suivre la livraison
                     </a>
                 `;

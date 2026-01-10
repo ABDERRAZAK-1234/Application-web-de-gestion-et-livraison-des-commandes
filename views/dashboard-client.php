@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#" onclick="authManager.logout()">
+                <a class="nav-link" href="index.php" onclick="authManager.logout()">
                     <i class="bi bi-box-arrow-right me-1"></i>Déconnexion
                 </a>
             </div>
@@ -221,7 +221,7 @@
                             <div class="mt-2">${getStatusBadge(cmd.status)}</div>
                         </div>
                         <div class="command-actions">
-                            <a href="command-detail.html?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
+                            <a href="command-detail.php?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-eye me-1"></i>Voir
                             </a>
                         </div>

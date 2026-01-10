@@ -155,7 +155,7 @@
                         <i class="bi bi-inbox"></i>
                         <h5>Aucune commande trouvée</h5>
                         <p class="text-muted">Vous n'avez pas encore de commandes.</p>
-                        <a href="create-command.html" class="btn btn-primary mt-3">
+                        <a href="create-command.php" class="btn btn-primary mt-3">
                             <i class="bi bi-plus-circle me-2"></i>Créer une commande
                         </a>
                     </div>
@@ -174,11 +174,11 @@
                             <div class="mt-2">${getStatusBadge(cmd.status)}</div>
                         </div>
                         <div class="command-actions">
-                            <a href="command-detail.html?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
+                            <a href="command-detail.php?id=${cmd.id}" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-eye me-1"></i>Voir
                             </a>
                             ${cmd.status === 'pending' ? `
-                                <a href="create-command.html?edit=${cmd.id}" class="btn btn-sm btn-outline-warning">
+                                <a href="create-command.php?edit=${cmd.id}" class="btn btn-sm btn-outline-warning">
                                     <i class="bi bi-pencil me-1"></i>Modifier
                                 </a>
                                 <button onclick="cancelCommand(${cmd.id})" class="btn btn-sm btn-outline-danger">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="auth-page">
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
@@ -19,58 +21,38 @@
                             <h2 class="fw-bold">Livraison Express</h2>
                             <p class="text-muted">Connectez-vous à votre compte</p>
                         </div>
-                        
-                        <form id="loginForm">
+
+                        <form method="POST" action="../public/login.php">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" class="form-control" id="email" required>
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">Mot de passe</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                    <input type="password" class="form-control" id="password" required>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
-                            
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
-                            </div>
-                            
+
                             <button type="submit" class="btn btn-primary w-100 mb-3">
                                 <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
                             </button>
-                            
                             <div class="text-center">
-                                <p class="mb-0">Pas encore de compte ? <a href="register.php" class="text-primary">S'inscrire</a></p>
+                                <p class="mb-0">Pas encore de compte ?<a href="register.php"
+                                        class="text-primary">S'inscrire</a></p>
                             </div>
                         </form>
-                        
-                        <div class="mt-4">
-                            <p class="text-muted small text-center">Comptes de démonstration :</p>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-outline-primary btn-sm" onclick="quickLogin('client@demo.com', 'client', 'client')">
-                                    <i class="bi bi-person me-2"></i>Client
-                                </button>
-                                <button class="btn btn-outline-success btn-sm" onclick="quickLogin('livreur@demo.com', 'livreur', 'livreur')">
-                                    <i class="bi bi-bicycle me-2"></i>Livreur
-                                </button>
-                                <button class="btn btn-outline-danger btn-sm" onclick="quickLogin('admin@demo.com', 'admin', 'admin')">
-                                    <i class="bi bi-shield-check me-2"></i>Admin
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/auth.js"></script>
     <script>
@@ -81,5 +63,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>

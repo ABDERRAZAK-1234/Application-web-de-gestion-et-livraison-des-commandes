@@ -63,7 +63,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <a href="command-detail.html?id=" id="backLink" class="btn btn-outline-secondary btn-sm mb-2">
+                        <a href="command-detail.php?id=" id="backLink" class="btn btn-outline-secondary btn-sm mb-2">
                             <i class="bi bi-arrow-left me-2"></i>Retour
                         </a>
                         <h1 class="h3 mb-0">Suivi de livraison - Commande #<span id="commandId"></span></h1>

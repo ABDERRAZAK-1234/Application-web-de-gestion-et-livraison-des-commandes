@@ -11,6 +11,7 @@ abstract class Utilisateur extends BaseModel
     protected string $email;
     protected string $password;
     protected Role $role;
+    protected string $table = 'users';
 
     public function __construct(string $nom, string $prenom, string $email, string $password, Role $role)
     {

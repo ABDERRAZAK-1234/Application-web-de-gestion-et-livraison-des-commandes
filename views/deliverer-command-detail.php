@@ -321,7 +321,7 @@
             } else if (cmd.status === 'processing' || cmd.status === 'shipped') {
                 if (cmd.acceptedOffer && cmd.acceptedOffer.delivererId === user.id) {
                     actionsContainer.innerHTML = `
-                        <a href="deliverer-track-command.html?id=${cmd.id}" class="btn btn-primary w-100 mb-2">
+                        <a href="track-command.php?id=${cmd.id}" class="btn btn-primary w-100 mb-2">
                             <i class="bi bi-geo-alt me-2"></i>Suivre la livraison
                         </a>
                         ${cmd.status === 'processing' ? `

@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#" onclick="authManager.logout()">
+                <a class="nav-link" href="index.php" onclick="authManager.logout()">
                     <i class="bi bi-box-arrow-right me-1"></i>Déconnexion
                 </a>
             </div>

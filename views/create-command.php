@@ -159,7 +159,7 @@
                                     </div>
 
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <a href="commands-list.html" class="btn btn-outline-secondary">
+                                        <a href="commands-list.php" class="btn btn-outline-secondary">
                                             <i class="bi bi-x me-2"></i>Annuler
                                         </a>
                                         <button type="submit" class="btn btn-primary">
@@ -255,7 +255,7 @@
             showAlert('Commande créée avec succès !', 'success');
             
             setTimeout(() => {
-                window.location.href = 'commands-list.html';
+                window.location.href = 'commands-list.php';
             }, 1000);
         });
     </script>

@@ -21,5 +21,4 @@ class Livreur extends Utilisateur
     {
         return [];
     }
-   
 }
